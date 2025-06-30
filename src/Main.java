@@ -44,12 +44,12 @@ public class Main {
             losses++;
         }
 
-        public int winRate() {
+        public double winRate() {
             int total = wins + draws + losses;
             if (total == 0) {
-                return 0;
+                return 0.0;
             } else {
-                return (wins / total) * 100;
+                return ((double) wins / total);
             }
         }
 
@@ -150,7 +150,7 @@ public class Main {
                 System.out.println("  Empates: " + player.getDraws());
                 System.out.println("  Total: " + total);
                 if (total > 0) {
-                    System.out.println("  Porcentaje de victorias: " + player.winRate() + "%");
+                    System.out.println("  Porcentaje de victorias: " + String.format("%.1f", player.winRate() * 100) + "%");
                 }
             }
             System.out.println("==========================================");
@@ -392,7 +392,7 @@ public class Main {
                     Status = "DRAW";
                     WinnerPlayerName = "";
                     prinBoard();
-                    System.out.println("EMPATARON MALAYAS QLIA");
+                    System.out.println("EMPATARON");
                     return "";
                 }
             }
